@@ -42,10 +42,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.txtEstoque = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtEstoque = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.EstoqueDialog = new System.Windows.Forms.OpenFileDialog();
+            this.txtversao = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -153,17 +154,6 @@
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
-            // 
-            // txtEstoque
-            // 
-            this.txtEstoque.BackColor = System.Drawing.Color.Azure;
-            resources.ApplyResources(this.txtEstoque, "txtEstoque");
-            this.txtEstoque.Name = "txtEstoque";
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.MidnightBlue;
@@ -173,16 +163,33 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txtEstoque
+            // 
+            this.txtEstoque.BackColor = System.Drawing.Color.Azure;
+            resources.ApplyResources(this.txtEstoque, "txtEstoque");
+            this.txtEstoque.Name = "txtEstoque";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            // 
             // EstoqueDialog
             // 
             resources.ApplyResources(this.EstoqueDialog, "EstoqueDialog");
             this.EstoqueDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.EstoqueDialog_FileOk);
+            // 
+            // txtversao
+            // 
+            resources.ApplyResources(this.txtversao, "txtversao");
+            this.txtversao.Name = "txtversao";
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
+            this.Controls.Add(this.txtversao);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -216,6 +223,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtEstoque;
         private System.Windows.Forms.OpenFileDialog EstoqueDialog;
+        private System.Windows.Forms.Label txtversao;
     }
 }
 

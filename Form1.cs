@@ -95,15 +95,16 @@ namespace RoboPitStop
 
         private string getPedidos()
         {
-            string queryData = "&datainicio=" + this.dataDe.Value.ToString().Substring(0, 10) + "&datafim=" + this.dataAte.Value.ToString().Substring(0, 10);
+            string queryData = "&datainicio=" + this.dataDe.Value.ToString("yyyy-MM-dd") + "&datafim=" + this.dataAte.Value.ToString("yyyy-MM-dd");
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://pitstopintegracao.chleba.net/wsintegracao/");
+                client.BaseAddress = new Uri("https://comercializacaoapi.pitstop.com.br/wsintegracao/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 HttpResponseMessage response = client.GetAsync("GetPedido?token=" + ConfigurationManager.AppSettings["token"] + "&login=" + ConfigurationManager.AppSettings["login"] + queryData).Result;
-                return response.Content.ReadAsStringAsync().Result;
+                var result = response.Content.ReadAsStringAsync().Result;
+                return result;
             }
         }
 
@@ -111,7 +112,7 @@ namespace RoboPitStop
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://pitstopintegracao.chleba.net/wsintegracao/");
+                client.BaseAddress = new Uri("https://comercializacaoapi.pitstop.com.br/wsintegracao/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -169,7 +170,7 @@ namespace RoboPitStop
                             altura = produtos[index.Altura].Replace('.', ',').Trim(),
                             profundidade = produtos[index.Profundidade].Replace('.', ',').Trim(),
                             preco = produtos[index.Preco].Replace('.', ',').Trim(),
-                            precopromocao = produtos[index.Promocao].Replace('.', ',').Trim(),
+                            precopromocao = produtos[index.Preco].Replace('.', ',').Trim(),
                             imagem = produtos[index.Imagem].Trim(),
                             prazoentrega = produtos[index.Prazo].Trim(),
                             prazogarantia = produtos[index.Garantia].Trim(),
@@ -361,7 +362,7 @@ namespace RoboPitStop
         {
             using (HttpClient client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://pitstopintegracao.chleba.net/wsintegracao/");
+                client.BaseAddress = new Uri("https://comercializacaoapi.pitstop.com.br/wsintegracao/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
